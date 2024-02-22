@@ -1,6 +1,7 @@
 import styles from "./footer.module.css";
 import Image from "next/image";
 import Link from "next/link";
+import SocialNetwork from "../socialNetwork/SocialNetwork";
 
 const Footer = () => {
   return (
@@ -14,7 +15,7 @@ const Footer = () => {
             width={50}
             height={50}
           />
-          <h1 className={styles.logoText}>Alez_Blog</h1>
+          <h1 className={styles.logoText}>Blog</h1>
         </div>
         <p className={styles.description}>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Est rerum
@@ -22,36 +23,7 @@ const Footer = () => {
           voluptates fugit necessitatibus explicabo, repellat fuga reiciendis
           sit, soluta deserunt quam eos libero.
         </p>
-        <div className={styles.icons}>
-          <Image
-            src="/facebook.png"
-            alt="facebook"
-            loading="lazy"
-            width={18}
-            height={18}
-          />
-          <Image
-            src="/instagram.png"
-            alt="instagram"
-            loading="lazy"
-            width={18}
-            height={18}
-          />
-          <Image
-            src="/tiktok.png"
-            alt="tiktok"
-            loading="lazy"
-            width={18}
-            height={18}
-          />
-          <Image
-            src="/youtube.png"
-            alt="youtube"
-            loading="lazy"
-            width={18}
-            height={18}
-          />
-        </div>
+        <SocialNetwork />
       </div>
       <div className={styles.links}>
         <div className={styles.list}>
@@ -70,10 +42,34 @@ const Footer = () => {
         </div>
         <div className={styles.list}>
           <span className={styles.listTitle}>Social</span>
-          <Link href="/">Facebbok</Link>
-          <Link href="/">Instagram</Link>
-          <Link href="/">TikTok</Link>
-          <Link href="/">Youtube</Link>
+          <Link
+            rel="noopener noreferrer"
+            target="_blank"
+            href="https://www.facebook.com/"
+          >
+            Facebook
+          </Link>
+          <Link
+            rel="noopener noreferrer"
+            target="_blank"
+            href="https://www.instagram.com/"
+          >
+            Instagram
+          </Link>
+          <Link
+            rel="noopener noreferrer"
+            target="_blank"
+            href="https://www.tiktok.com/"
+          >
+            TikTok
+          </Link>
+          <Link
+            rel="noopener noreferrer"
+            target="_blank"
+            href="https://www.youtube.com/"
+          >
+            Youtube
+          </Link>
         </div>
       </div>
     </div>

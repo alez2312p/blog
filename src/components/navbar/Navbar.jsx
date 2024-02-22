@@ -1,52 +1,23 @@
 import styles from "./navbar.module.css";
-import Image from "next/image";
 import Link from "next/link";
+import SocialNetwork from "../socialNetwork/SocialNetwork";
 import ThemeToggle from "../themeToggle/ThemeToggle";
 import AuthLinks from "../authLinks/AuthLinks";
 
 const Navbar = () => {
   return (
     <div className={styles.container}>
-      <div className={styles.social}>
-        <Image
-          src="/facebook.png"
-          alt="facebook"
-          loading="lazy"
-          width={24}
-          height={24}
-        />
-        <Image
-          src="/instagram.png"
-          alt="instagram"
-          loading="lazy"
-          width={24}
-          height={24}
-        />
-        <Image
-          src="/tiktok.png"
-          alt="tiktok"
-          loading="lazy"
-          width={24}
-          height={24}
-        />
-        <Image
-          src="/youtube.png"
-          alt="youtube"
-          loading="lazy"
-          width={24}
-          height={24}
-        />
-      </div>
-      <div className={styles.logo}>Alez_Blog</div>
+      <SocialNetwork />
+      <div className={styles.logo}>Blog</div>
       <div className={styles.links}>
         <ThemeToggle />
-        <Link className={styles.link} href="/">
+        <Link className={styles.link} href="/home">
           Home
         </Link>
-        <Link className={styles.link} href="/">
+        <Link className={styles.link} href="/contact">
           Contact
         </Link>
-        <Link className={styles.link} href="/">
+        <Link className={styles.link} href="/about">
           About
         </Link>
         <AuthLinks />

@@ -90,3 +90,11 @@ model Comment {
   postSlug    String
   post        Post     @relation(fields: [postSlug], references: [slug])
 }
+
+model Contact {
+  id        String   @id @default(cuid()) @map("_id")
+  fullName  String
+  email     String
+  message   String
+  createdAt DateTime @default(now())
+}
