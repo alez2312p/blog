@@ -3,9 +3,12 @@ import Image from "next/image";
 import styles from "./categoryList.module.css";
 
 const getData = async () => {
-  const res = await fetch("http://localhost:3000/api/categories/mostPopular", {
-    cache: "no-store",
-  });
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/api/categories/mostPopular`,
+    {
+      cache: "no-store",
+    }
+  );
 
   if (!res.ok) {
     throw new Error("Failed to fetch category");

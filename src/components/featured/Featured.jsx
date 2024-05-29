@@ -3,9 +3,12 @@ import Link from "next/link";
 import styles from "./featured.module.css";
 
 const getData = async () => {
-  const res = await fetch("http://localhost:3000/api/posts/lastPost", {
-    cache: "no-store",
-  });
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/api/posts/lastPost`,
+    {
+      cache: "no-store",
+    }
+  );
 
   if (!res.ok) {
     throw new Error("Failed to fetch posts");
@@ -14,6 +17,8 @@ const getData = async () => {
   return res.json();
 };
 
+// https://chatgpt.com/c/1051b800-0749-4c1d-b49e-f986dd297663
+// https://chatgpt.com/c/ed0e4856-50a2-4946-ba25-7b2c46450cf7
 const slugify = (str) =>
   str
     .toLowerCase()
