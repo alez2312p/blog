@@ -4,7 +4,7 @@ import styles from "./cardList.module.css";
 
 const getData = async (page, category) => {
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/api/posts?page=${page}&category=${
+    `https://blog-omega-brown.vercel.app/api/posts?page=${page}&category=${
       category || ""
     }`,
     {

@@ -4,7 +4,7 @@ import styles from "./categoryList.module.css";
 
 const getData = async () => {
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/api/categories/mostPopular`,
+    `https://blog-omega-brown.vercel.app/api/categories/mostPopular`,
     {
       cache: "no-store",
     }

@@ -4,7 +4,7 @@ import styles from "./featured.module.css";
 
 const getData = async () => {
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/api/posts/lastPost`,
+    `https://blog-omega-brown.vercel.app/api/posts/lastPost`,
     {
       cache: "no-store",
     }

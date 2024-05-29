@@ -5,7 +5,7 @@ import Image from "next/image"
 
 const getData = async (slug) => {
     const res = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/api/posts/${slug}`, {
+        `https://blog-omega-brown.vercel.app/api/posts/${slug}`, {
         cache: "no-store",
     });
 
