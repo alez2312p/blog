@@ -1,68 +1,102 @@
 .container {
-    position: relative;
-    display: flex;
-    flex-direction: column;
+  position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
 .input {
-    padding: 50px;
-    font-size: 64px;
-    border: none;
-    outline: none;
-    background-color: transparent;
-    color: var(--textColor);
+  padding: 50px;
+  font-size: 64px;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  color: var(--textColor);
 }
 
 .input::placeholder {
-    color: #b3b3b1
+  color: #b3b3b1;
+}
+
+.select {
+  padding: 10px;
+  font-size: 20px;
+  border: 1px solid var(--textColor);
+  border-radius: 5px;
+  background-color: transparent;
+  color: var(--textColor);
+  margin: 20px 0;
+  outline: none;
+  cursor: pointer;
+}
+
+.select option {
+  background-color: var(--bg);
+  color: var(--textColor);
 }
 
 .editor {
-    display: flex;
-    gap: 20px;
-    height: 700px;
-    position: relative;
+  gap: 20px;
+  height: 700px;
+  position: relative;
+}
+
+.addImageAndCategory {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .button,
 .addButton {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    background-color: transparent;
-    border: 1px solid var(--textColor);
-    cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: transparent;
+  border: 1px solid var(--textColor);
+  cursor: pointer;
 }
 
 .add {
-    display: flex;
-    gap: 20px;
-    background-color: var(--bg);
-    position: absolute;
-    z-index: 999;
-    width: 100%;
-    left: 50px;
+  display: flex;
+  gap: 20px;
+  background-color: var(--bg);
+  position: absolute;
+  z-index: 999;
+  width: 100%;
+  left: 50px;
 }
 
 .addButton {
-    border-color: #1a8917;
+  border-color: #1a8917;
 }
 
 .textArea {
-    width: 100%;
+  width: 100%;
 }
 
 .publish {
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    padding: 10px 20px;
-    border: none;
-    background-color: #1a8917;
-    color: white;
-    cursor: pointer;
-    border-radius: 20px;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  padding: 10px 20px;
+  border: none;
+  background-color: #1a8917;
+  color: white;
+  cursor: pointer;
+  border-radius: 20px;
+}
+
+.preview {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.imagePreview {
+  border-radius: 5px;
+  border: 1px solid var(--textColor);
 }

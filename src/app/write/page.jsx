@@ -1,11 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import dynamic from "next/dynamic";
 import styles from "./writePage.module.css";
 import Image from "next/image";
-// in dev
-// import ReactQuill from "react-quill";
-import "react-quill/dist/quill.bubble.css";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { app } from "../../utils/firebase";
@@ -16,27 +14,28 @@ import {
   getDownloadURL,
 } from "firebase/storage";
 
+// Import ReactQuill dynamically
+const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
+import "react-quill/dist/quill.bubble.css";
+
 const storage = getStorage(app);
 
 const WritePage = () => {
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState("");
   const [file, setFile] = useState(null);
+  const [preview, setPreview] = useState(null);
   const [media, setMedia] = useState("");
   const [title, setTitle] = useState("");
+  const [category, setCategory] = useState("fashion");
   const { status } = useSession();
   const router = useRouter();
-
-  // IN PRODUCTION
-  const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 
   useEffect(() => {
     const upload = () => {
       const name = new Date().getTime() + file.name;
       const storageRef = ref(storage, name);
-
       const uploadTask = uploadBytesResumable(storageRef, file);
-
       uploadTask.on(
         "state_changed",
         (snapshot) => {
@@ -63,6 +62,19 @@ const WritePage = () => {
     file && upload();
   }, [file]);
 
+  useEffect(() => {
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setPreview(reader.result);
+        setOpen(false);
+      };
+      reader.readAsDataURL(file);
+    } else {
+      setPreview(null);
+    }
+  }, [file]);
+
   if (status === "loading") {
     return <div className={styles.loading}>Loading...</div>;
   }
@@ -86,7 +98,7 @@ const WritePage = () => {
         description: value,
         image: media,
         slug: slugify(title),
-        catSlug: "style",
+        catSlug: category,
       }),
     });
     if (res.ok) {
@@ -102,10 +114,31 @@ const WritePage = () => {
         className={styles.input}
         onChange={(e) => setTitle(e.target.value)}
       />
+
       <div className={styles.editor}>
-        <button className={styles.button} onClick={() => setOpen(!open)}>
-          <Image src="/plus.png" alt="" loading="lazy" width={16} height={16} />
-        </button>
+        <div className={styles.addImageAndCategory}>
+          <button className={styles.button} onClick={() => setOpen(!open)}>
+            <Image
+              src="/plus.png"
+              alt=""
+              loading="lazy"
+              width={16}
+              height={16}
+            />
+          </button>
+          <select
+            className={styles.select}
+            value={category}
+            onChange={(e) => setCategory(e.target.value)}
+          >
+            <option value="fashion">Fashion</option>
+            <option value="culture">Culture</option>
+            <option value="coding">Coding</option>
+            <option value="food">Food</option>
+            <option value="style">Style</option>
+            <option value="travel">Travel</option>
+          </select>
+        </div>
         {open && (
           <div className={styles.add}>
             <input
@@ -143,6 +176,18 @@ const WritePage = () => {
                 height={16}
               />
             </button>
+          </div>
+        )}
+        {preview && (
+          <div className={styles.preview}>
+            <Image
+              src={preview}
+              alt="preview"
+              loading="lazy"
+              width={500}
+              height={250}
+              className={styles.imagePreview}
+            />
           </div>
         )}
         <ReactQuill

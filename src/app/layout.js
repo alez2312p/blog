@@ -10,8 +10,7 @@ import { ThemeContextProvider } from '../context/ThemeContext'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
-  title: 'Blog App',
-  description: 'The best blog app!',
+  title: 'Blog',
 }
 
 export default function RootLayout({ children }) {
