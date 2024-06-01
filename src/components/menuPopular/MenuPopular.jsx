@@ -3,7 +3,7 @@ import styles from "./menuPopular.module.css";
 
 const getData = async () => {
   const res = await fetch(
-    `https://blog-omega-brown.vercel.app/api/posts/mostPopular`,
+    `https://blog-alez.vercel.app/api/posts/mostPopular`,
     {
       cache: "no-store",
     }

@@ -23,7 +23,7 @@ const Comments = ({ postSlug }) => {
   const [description, setDescription] = useState("");
 
   const { data, mutate, isLoading } = useSWR(
-    `https://blog-omega-brown.vercel.app/api/comments?postSlug=${postSlug}`,
+    `https://blog-alez.vercel.app/api/comments?postSlug=${postSlug}`,
     fetcher
   );
 

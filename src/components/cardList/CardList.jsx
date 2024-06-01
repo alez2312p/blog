@@ -4,7 +4,7 @@ import styles from "./cardList.module.css";
 
 const getData = async (page, category) => {
   const res = await fetch(
-    `https://blog-omega-brown.vercel.app/api/posts?page=${page}&category=${
+    `https://blog-alez.vercel.app/api/posts?page=${page}&category=${
       category || ""
     }`,
     {

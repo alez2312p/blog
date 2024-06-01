@@ -3,7 +3,7 @@ import Image from "next/image";
 import styles from "./menuPost.module.css";
 
 const getData = async () => {
-  const res = await fetch(`https://blog-omega-brown.vercel.app/api/users`, {
+  const res = await fetch(`https://blog-alez.vercel.app/api/users`, {
     cache: "no-store",
   });
 

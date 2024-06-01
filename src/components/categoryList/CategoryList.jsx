@@ -4,7 +4,7 @@ import styles from "./categoryList.module.css";
 
 const getData = async () => {
   const res = await fetch(
-    `https://blog-omega-brown.vercel.app/api/categories/mostPopular`,
+    `https://blog-alez.vercel.app/api/categories/mostPopular`,
     {
       cache: "no-store",
     }

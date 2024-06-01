@@ -2,12 +2,9 @@ import Link from "next/link";
 import styles from "./menuCategories.module.css";
 
 const getData = async () => {
-  const res = await fetch(
-    `https://blog-omega-brown.vercel.app/api/categories`,
-    {
-      cache: "no-store",
-    }
-  );
+  const res = await fetch(`https://blog-alez.vercel.app/api/categories`, {
+    cache: "no-store",
+  });
 
   if (!res.ok) {
     throw new Error("Failed to fetch category");
